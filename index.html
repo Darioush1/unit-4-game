@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -27,14 +28,30 @@
             </p>
         </Section>
 
-        <Section id="random_num"></Section>
+        <Section id="random_num">
+            <span id="target"></span>
+        </Section>
         
         <section id="score">
-            <p>Wins:</p>
+            <p>Wins:<span id="wins"></span></p>
             <br>
-            <p>Losses:</p>
+            <p>Losses:<span id="losses"></span></p>
         </section>
 
+        <section id="buttons">
+        <Input type="image" width=150px class="blackCrystal" src="./assets/images/blackCrystal.jpg" alt="Me">
+        <Input type="image" width=150px class="blackCrystal" src="./assets/images/blueCrystal.jpg" alt="Me">
+        <Input type="image" width=150px class="blackCrystal" src="./assets/images/greenCrystal.jpg" alt="Me">
+        <Input type="image" width=150px class="blackCrystal" src="./assets/images/purpleCrystal.jpg" alt="Me">
+        </section>
+
+        <section id="total">
+            <p>Your total is: </p>
+        </section>
+
+        <section id="totalscore">
+            <span id="totalpoints"></span>
+        </section>
 
     </div>
 </body>
