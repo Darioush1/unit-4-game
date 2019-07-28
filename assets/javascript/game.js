@@ -3,8 +3,6 @@ var losses = 0;
 var totalpoints = 0;
 var randomNumber; 
 
-    
-
     var crystalNumberButtons = {
         black:
         {
@@ -31,62 +29,58 @@ var randomNumber;
         }
     };
 
-    $('#wins').append(wins);
-    $('#losses').append(losses);
-    $('#totalpoints').append(totalpoints);
+   
 
 function runGame() {
     totalpoints = 0;
     randomNumber = Math.floor((Math.random() * 120) +19);
     $('#randomNumber').text(randomNumber);
+    $('.blackCrystal').attr('crystalData', crystalNumberButtons.black.value)
+    $('.blueCrystal').attr('crystalData', crystalNumberButtons.blue.value)
+    $('.greenCrystal').attr('crystalData', crystalNumberButtons.green.value)
+    $('.purpleCrystal').attr('crystalData', crystalNumberButtons.purple.value)
 };
+
+var winsHTML = $('#wins').text(wins);
+var lossesHTML = $('#losses').text(losses)
 
  runGame();
 
-$('.blackCrystal').on('click', function(){
-    $('.blackCrystal').text(crystalNumberButtons.black.value);
-    $('#totalpoints').append(crystalNumberButtons.black.value);
-    updateTotalPoints();
+ $('#wins').append(winsHTML);
+ $('#losses').append(lossesHTML);
+ $('#totalpoints').text(totalpoints);
+ $(".crystal").on("click", function(){
+    let crystalVal = parseInt($(this).attr('crystalData'));
+    totalpoints += crystalVal;
+
+    $('#total').text('Your total is: ' + totalpoints);
+
+    console.log(totalpoints);
+    console.log(crystalVal)
+    console.log("Wins  " + wins)
+    console.log("losses " + losses) 
+
+    if (totalpoints == randomNumber) {
+        wins++;
+        $('#playerUpdate').text('Perfect!');
+        $('#wins').text(wins);
+        runGame()
+    } else if (totalpoints > randomNumber) {
+        losses++;
+        $('#playerUpdate').text('you fucked up!');
+        $('#losses').text(losses);
+
+        runGame()
+    } else {
+        $('#playerUpdate').text('getting close!')
+    }
+    ;
+
 });
-$('.blueCrystal').on('click', function (){
-    $('.blueCrystal').text(crystalNumberButtons.blue.value);
-});
-$('.greenCrystal').on('click', function (){
-    $('.greenCrystal').text(crystalNumberButtons.green.value);
-});
-$('.purpleCrystal').on('click', function (){
-    $('.purpleCrystal').text(crystalNumberButtons.purple.value);
-});
-
-// get value of button, update the total score, append to page
 
 
 
-function updateTotalPoints(crystalButtons) {
-    totalpoints += crystalNumberButtons[crystalNumberButtons.attr('.buttons')].points;
-    $('#totalpoints').append(totalpoints);
-};
-
-
-
-
-console.log(crystalNumberButtons)
-
-
-
-console.log('crystalNumberButtons.black.value' + randomNumberCrystalBlack);
-console.log('Blue ' + randomNumberCrystalBlue);
-console.log('Green ' + randomNumberCrystalGreen);
-console.log('Purple ' + randomNumberCrystalPurple);
-console.log(randomNumber)
-console.log(updateTotalPoints)
-
-
-/*
-
-function resetGame() {
-    // set new random number
-}
-
-
-*/
+console.log('crystalNumberButtons');
+console.log('Black Value ' + crystalNumberButtons.black.value);
+console.log("Total Points " + totalpoints)
+console.log("Target " + randomNumber)

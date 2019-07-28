@@ -27,9 +27,11 @@
         </Section>
 
         <Section id="random_num">
-            <span id="randomNumber"></span>
+            Target: <span id="randomNumber"></span>
         </Section>
-        
+        <Section id="game update">
+            How close are you? <span id="playerUpdate"></span><br>
+        </Section>
         <section id="score">
             <p>Wins:<span id="wins"></span></p>
             <br>
@@ -37,10 +39,11 @@
         </section>
 
         <section id="buttons">
-        <Input type="image" width=150px class="blackCrystal" src="./assets/images/blackCrystal.jpg" alt="Me">
-        <Input type="image" width=150px class="blueCrystal" src="./assets/images/blueCrystal.jpg" alt="Me">
-        <Input type="image" width=150px class="greenCrystal" src="./assets/images/greenCrystal.jpg" alt="Me">
-        <Input type="image" width=150px class="purpleCrystal" src="./assets/images/purpleCrystal.jpg" alt="Me">
+        <img type="image" width=150px class="blackCrystal crystal" src="./assets/images/blackCrystal.jpg" crystalData=''
+        alt="Me">
+        <img type="image" width=150px class="blueCrystal crystal" src="./assets/images/blueCrystal.jpg" alt="Me">
+        <img type="image" width=150px class="greenCrystal crystal" src="./assets/images/greenCrystal.jpg" alt="Me">
+        <img type="image" width=150px class="purpleCrystal crystal" src="./assets/images/purpleCrystal.jpg" alt="Me">
         </section>
 
         <section id="total">
@@ -53,6 +56,7 @@
             <span id="totalpoints"></span>
         </section>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="./assets/javascript/game.js"></script>
     </div>
 </body>
 </html>
